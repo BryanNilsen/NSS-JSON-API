@@ -1,0 +1,15 @@
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.foodList {
+    color: red;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.foodList-header {
+    color: blue;
+}

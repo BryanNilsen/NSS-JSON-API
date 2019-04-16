@@ -1,0 +1,74 @@
+{
+  "food": [
+    {
+      "name": "Angel Hair",
+      "type": "pasta",
+      "ethnicity": "italian",
+      "barcode": "0047325907645",
+      "id": 1
+    },
+    {
+      "name": "Red curry",
+      "type": "curry",
+      "ethnicity": "thai",
+      "id": 2,
+      "barcode": "00466820"
+    },
+    {
+      "id": 3,
+      "name": "Green curry",
+      "type": "curry",
+      "ethnicity": "thai",
+      "barcode": "00709583"
+    },
+    {
+      "id": 4,
+      "name": "Ravioli Funghi",
+      "type": "pasta",
+      "ethnicity": "italian",
+      "barcode": "8021733250892"
+    },
+    {
+      "id": 5,
+      "name": "Tuscan Soup",
+      "type": "vegetarian",
+      "ethnicity": "italian",
+      "barcode": "5000169116562"
+    },
+    {
+      "id": 6,
+      "name": "Pepperoni Pizza",
+      "type": "pizza",
+      "ethnicity": "italian",
+      "barcode": "0072180733689"
+    },
+    {
+      "name": "Lamb Gyros",
+      "type": "sandwich",
+      "ethnicity": "greek",
+      "id": 7,
+      "barcode": "0077507015066"
+    },
+    {
+      "name": "Vegetable Korma",
+      "type": "vegetarian",
+      "ethnicity": "indian",
+      "id": 8,
+      "barcode": "0042272002504"
+    },
+    {
+      "name": "Hot Pockets",
+      "type": "sandwich",
+      "ethnicity": "american",
+      "barcode": "0043695071085",
+      "id": 9
+    },
+    {
+      "name": "Steak-Umm",
+      "type": "sandwich",
+      "ethnicity": "american",
+      "id": 10,
+      "barcode": "0072545062621"
+    }
+  ]
+}
