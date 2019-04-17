@@ -1,37 +1,46 @@
-let foodProduct;
-let APIfoodProducts = [];
+// create a function to get all local and api food data and input into DOM
 
-fetch("http://localhost:8088/food")
-  .then(foods => foods.json())
-  .then(parsedFoods => {
-    console.table(parsedFoods);
+function getData() {
+  // grab HTML element to inject food data
+  let foodlist = document.querySelector("#foodlist");
+  // clear element
+  foodlist.innerHTML = "";
+  // fetch local food data
+  fetch("http://localhost:8088/food")
+    .then(foods => foods.json())
+    .then(parsedFoods => {
+      // console.table represents data in console as a table (obviously!:)
+      console.table(parsedFoods);
+      // loop over local food data, grab barcode and use it to fetch API data
+      parsedFoods.forEach(food => {
+        fetch(
+          `https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`
+        )
+          .then(APIfoods => APIfoods.json())
+          .then(parsedAPIfoods => {
+            //  target html element and inject DOM element created by foodFactory function
+            foodlist.innerHTML += foodFactory(food, parsedAPIfoods);
+          });
+      });
+    });
+}
 
-    // for loop foodProduct and make equal to parsedFoods[i]
-    foodProduct = parsedFoods[0];
+// input local and API food data to create DOM element
+function foodFactory(localFood, apiFood) {
+  return `
+  <div class="food_list">
+    <h2>${localFood.name}</h2>
+    <img src="${apiFood.product.image_url}">
+    <p>${localFood.type}</p>
+    <p>Country: ${apiFood.product.countries}</p>
+    <p>Calories/serving: ${apiFood.product.nutriments.energy_serving}
+    <p>Fat/serving: ${apiFood.product.nutriments.fat_serving}
+    <p>Sugar/serving: ${apiFood.product.nutriments.sugars_serving}
+    <p class="ingredients">${apiFood.product.ingredients_text}
+  </div>
+  `;
+}
 
-    // rewrite >> parsedFoods.forEach()
-
-    // get barcode for each foodproduct and assign to foodBarcode
-    let foodBarcode = parsedFoods[0].barcode;
-    console.log(foodBarcode);
-    // using the foodBarcode, return fetch
-    return fetch(
-      `https://world.openfoodfacts.org/api/v0/product/${foodBarcode}.json`
-    );
-  })
-  .then(APIfoods => APIfoods.json())
-  .then(parsedAPIfoods => {
-    console.log(parsedAPIfoods.product.ingredients_text);
-
-    let foodlist = document.querySelector("#foodlist");
-    foodlist.innerHTML += `
-            <div class="foodList">
-                <h1 class="foodList-header">${foodProduct.name}</h1>
-                <p>${foodProduct.ethnicity}</p>
-                <p>${foodProduct.type}</p>
-                <p>${parsedAPIfoods.product.ingredients_text}</p>
-            </div>
-            `;
-  });
-
-// test comment
+// grab button from index.html and add click event to populate DOM
+const getDataBtn = document.getElementById("btn-getData");
+getDataBtn.addEventListener("click", () => getData());
