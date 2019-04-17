@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FOOD API TEST</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <h1>Food API</h1>
-    <section id="foodlist" class="flex">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FOOD API</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>Combining Local Food and API Data</h1>
+    <!-- click button to populate page with food data -->
+    <button id="btn-getData">Get the Data</button>
 
-    </section>
-    
+    <!-- food data container -->
+    <section id="foodlist" class="food_container"></section>
+
     <script src="scripts/foodapi.js"></script>
-</body>
+  </body>
 </html>

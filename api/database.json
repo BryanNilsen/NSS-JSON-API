@@ -69,6 +69,33 @@
       "ethnicity": "american",
       "id": 10,
       "barcode": "0072545062621"
+    },
+    {
+      "name": "Toast",
+      "type": "sandwich",
+      "ethnicity": "american",
+      "id": 11
+    },
+    {
+      "name": "Bunny Fruit Snacks Berry Patch - Annie's Homegrown",
+      "type": "snacks",
+      "ethnicity": "american",
+      "barcode": "0013562011056",
+      "id": 12
+    },
+    {
+      "name": "Nilla Wafers",
+      "type": "snacks",
+      "ethnicity": "american",
+      "barcode": "0044000004743",
+      "id": 13
+    },
+    {
+      "name": "Cheetos Crunchy",
+      "type": "snacks",
+      "ethnicity": "american",
+      "barcode": "0028400040112",
+      "id": 14
     }
   ]
 }
