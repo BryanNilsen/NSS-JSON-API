@@ -1,17 +1,32 @@
 body {
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(10, 113, 197);
 }
 
 .event {
   color: rgb(48, 48, 48)
 }
 
+.event div {
+  box-shadow: 10px 10px 0px -4px rgba(0, 0, 0, 0.75);
+  background: white;
+  margin: 20px;
+  padding: 10px;
+}
+
 .event h1 {
-  font-size: 1.2em;
+  margin: 0px;
+  font-size: 1.3em;
   font-weight: bold;
-  color: rgb(150, 3, 3)
+  color: rgb(49, 49, 49)
+}
+
+.event h2 {
+  margin: 0px;
+  font-size: 1.1em;
+  color: rgb(90, 90, 90);
 }
 
 .event p {
-  font-size: .7em;
+  font-size: .9em;
 }
