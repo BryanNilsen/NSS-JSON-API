@@ -7,19 +7,22 @@ function getData() {
   foodlist.innerHTML = "";
   // fetch local food data
   fetch("http://localhost:8088/food")
-    .then(foods => foods.json())
+    .then(response => response.json())
     .then(parsedFoods => {
       // console.table represents data in console as a table (obviously!:)
       console.table(parsedFoods);
       // loop over local food data, grab barcode and use it to fetch API data
-      parsedFoods.forEach(food => {
+      parsedFoods.forEach(foodItem => {
         fetch(
-          `https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`
+          `https://world.openfoodfacts.org/api/v0/product/${
+            foodItem.barcode
+          }.json`
         )
-          .then(APIfoods => APIfoods.json())
+          .then(response => response.json())
           .then(parsedAPIfoods => {
+            console.log("PARSED API OBJ", parsedAPIfoods);
             //  target html element and inject DOM element created by foodFactory function
-            foodlist.innerHTML += foodFactory(food, parsedAPIfoods);
+            foodlist.innerHTML += foodFactory(foodItem, parsedAPIfoods);
           });
       });
     });
@@ -30,6 +33,7 @@ function foodFactory(localFood, apiFood) {
   return `
   <div class="food_list">
     <h2>${localFood.name}</h2>
+    <h3>${localFood.ethnicity}</h3>
     <img src="${apiFood.product.image_url}">
     <p>${localFood.type}</p>
     <p>Country: ${apiFood.product.countries}</p>

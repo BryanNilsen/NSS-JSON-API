@@ -27,8 +27,8 @@ $RECYCLE.BIN/
 # production
 /build
 
-/node_modules
-/src/lib/
+
+/src/lib/node_modules
 
 #other
 node_modules/
@@ -59,7 +59,7 @@ scratchNotes/
 Pipfile*
 migrations
 db.sqlite3-journal
-.eslintrc
 
 apidata/
 .env
+src/scripts/keys.js
