@@ -38,14 +38,20 @@ function getEventData(cat, id) {
       allEvents.forEach(event => {
         if (event.category_id === id) {
           const eventCard = document.createElement("div");
-          let eventDesc = event.description.text;
+          eventCard.id = event.id;
           console.log(event);
+          let eventBtn = document.createElement("button");
+          // eventBtn.value = "Add to Itinerary";
+          eventBtn.id = eventBtn.addEventListener("click", () => {
+            console.log("you clicked me");
+          });
           eventDetails = `
           <h1>${event.name.text}</h1>
           <h2>${event.venue.address.localized_address_display}</h2>
-          <p>${eventDesc.slice(0, 250)}...</p>
+          <p>${event.description.text}</p>
           `;
           eventCard.innerHTML += eventDetails;
+          eventCard.appendChild(eventBtn);
           containerDiv.appendChild(eventCard);
         }
       });

@@ -3,6 +3,12 @@ body {
   background: rgb(10, 113, 197);
 }
 
+.fullText {
+  margin: 0px;
+  font-size: 50vw;
+  font-weight: bold;
+}
+
 .event {
   color: rgb(48, 48, 48)
 }
@@ -29,4 +35,5 @@ body {
 
 .event p {
   font-size: .9em;
+  line-height: 1.5em;
 }
