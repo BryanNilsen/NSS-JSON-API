@@ -35,20 +35,22 @@ function getEventData(cat, id) {
     .then(response => response.json())
     .then(parsedEvents => {
       let allEvents = parsedEvents.events;
+      allEvents = allEvents.slice(0, 11);
       allEvents.forEach(event => {
         if (event.category_id === id) {
           const eventCard = document.createElement("div");
           eventCard.id = event.id;
           console.log(event);
           let eventBtn = document.createElement("button");
-          // eventBtn.value = "Add to Itinerary";
-          eventBtn.id = eventBtn.addEventListener("click", () => {
+          eventBtn.textContent = "Add to Itinerary";
+          eventBtn.id = event.id;
+          eventBtn.addEventListener("click", () => {
             console.log("you clicked me");
           });
           eventDetails = `
           <h1>${event.name.text}</h1>
           <h2>${event.venue.address.localized_address_display}</h2>
-          <p>${event.description.text}</p>
+          <p class="block-with-text">${event.description.text}</p>
           `;
           eventCard.innerHTML += eventDetails;
           eventCard.appendChild(eventBtn);
